@@ -1,1 +1,2 @@
 27+15;
+* && || / end if else fun bool
