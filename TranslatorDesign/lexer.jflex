@@ -78,13 +78,55 @@ ident = ([:jletter:] | "_" ) ([:jletterdigit:] | [:jletter:] | "_" )*
 <YYINITIAL> {
 
   {Whitespace} {                              }
-  ";"          { return symbolFactory.newSymbol("SEMI", SEMI); }
-  "+"          { return symbolFactory.newSymbol("PLUS", PLUS); }
-  "-"          { return symbolFactory.newSymbol("MINUS", MINUS); }
-  "*"          { return symbolFactory.newSymbol("TIMES", TIMES); }
-  "n"          { return symbolFactory.newSymbol("UMINUS", UMINUS); }
-  "("          { return symbolFactory.newSymbol("LPAREN", LPAREN); }
-  ")"          { return symbolFactory.newSymbol("RPAREN", RPAREN); }
+  
+  "+"          { return symbolFactory.newSymbol("ADD", ADD); }
+  "-"          { return symbolFactory.newSymbol("SUB", SUB); }
+  "*"          { return symbolFactory.newSymbol("MUL", MUL); }
+  "/"          { return symbolFactory.newSymbol("DIV", DIV); }
+  
+  "&&"          { return symbolFactory.newSymbol("AND", AND); }
+  "||"          { return symbolFactory.newSymbol("OR", OR); }
+  "not"          { return symbolFactory.newSymbol("NOT", NOT); }
+  
+  "="          { return symbolFactory.newSymbol("EQUAL", EQUAL); }
+  "<"          { return symbolFactory.newSymbol("LT", LT); }
+  ">"          { return symbolFactory.newSymbol("GT", GT); }
+  "=<"          { return symbolFactory.newSymbol("LE", LE); }
+  ">="          { return symbolFactory.newSymbol("GE", GE); }
+  
+  ":="          { return symbolFactory.newSymbol("ASSIGN", ASSIGN); }
+  
+   "("          { return symbolFactory.newSymbol("LPAR", LPAR); }
+  ")"          { return symbolFactory.newSymbol("RPAR", RPAR); }
+  "{"          { return symbolFactory.newSymbol("CLPAR", CLPAR); }
+  "}"          { return symbolFactory.newSymbol("CRPAR", CRPAR); }
+  "["          { return symbolFactory.newSymbol("SLPAR", SLPAR); }
+  "]"          { return symbolFactory.newSymbol("SRPAR", SRPAR); }
+  
+  ";"          { return symbolFactory.newSymbol("SEMICOLON", SEMICOLON); }
+  ":"          { return symbolFactory.newSymbol("COLON", COLON); }
+  ","          { return symbolFactory.newSymbol("COMMA", COMMA); }
+   
+  "if"          { return symbolFactory.newSymbol("IF", IF); }
+  "then"          { return symbolFactory.newSymbol("THEN", THEN); }
+  "while"          { return symbolFactory.newSymbol("WHILE", WHILE); }
+  "do"          { return symbolFactory.newSymbol("DO", DO); }
+  "read"          { return symbolFactory.newSymbol("READ", READ); }
+  "else"          { return symbolFactory.newSymbol("ELSE", ELSE); }
+  "begin"          { return symbolFactory.newSymbol("BEGIN", BEGIN); }
+  "end"          { return symbolFactory.newSymbol("END", END); }
+  "print"          { return symbolFactory.newSymbol("PRINT", PRINT); }
+  "int"          { return symbolFactory.newSymbol("INT", INT); }
+  "bool"          { return symbolFactory.newSymbol("BOOL", BOOL); }
+  "real"          { return symbolFactory.newSymbol("REAL", REAL); }
+  "var"          { return symbolFactory.newSymbol("VAR", VAR); }
+  "size"          { return symbolFactory.newSymbol("SIZE", SIZE); }
+  "float"          { return symbolFactory.newSymbol("FLOAT", FLOAT); }
+  "floor"          { return symbolFactory.newSymbol("FLOOR", FLOOR); }
+  "ceil"          { return symbolFactory.newSymbol("CEIL", CEIL); }
+  "fun"          { return symbolFactory.newSymbol("FUN", FUN); }
+  "return"          { return symbolFactory.newSymbol("RETURN", RETURN); }
+  
   {Number}     { return symbolFactory.newSymbol("NUMBER", NUMBER, Integer.parseInt(yytext())); }
 }
 
